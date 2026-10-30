@@ -340,7 +340,7 @@ const LEADS = [
   { n: "Marcos A. (autônomo)", v: "Delivery 11.180 baú", o: "Mercado Livre", e: 0, t: "2 h 10 min", u: 2, al: 1 },
   { n: "Agro Boa Safra", v: "Actros 4844 caçamba", o: "OLX", e: 0, t: "18 min", u: 1 },
   { n: "Laticínios Serra Azul", v: "e-Delivery 14", o: "Site", e: 1, t: "1 dia", u: 0 },
-  { n: "Cerealista Mourão", v: "Constellation 30.280", o: "WhatsApp", e: 1, t: "4 h", u: 1 },
+  { n: "Cerealista Vale Verde", v: "Constellation 30.280", o: "WhatsApp", e: 1, t: "4 h", u: 1 },
   { n: "Mudanças Expresso", v: "Delivery Express+", o: "Webmotors", e: 2, t: "2 dias", u: 2 },
   { n: "Frigorífico Vale", v: "Meteor 28.480", o: "Site", e: 2, t: "1 dia", u: 0 },
   { n: "José C. (autônomo)", v: "Axor 2544", o: "Mercado Livre", e: 3, t: "3 dias", u: 0 },
@@ -572,7 +572,7 @@ function crlvExemplo() {
   const s = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400"><rect width="640" height="400" fill="#F4F7EF"/><rect x="10" y="10" width="620" height="380" fill="none" stroke="#7A9A5B" stroke-width="2"/>
   <text x="320" y="44" font-family="Arial" font-size="17" font-weight="bold" text-anchor="middle" fill="#2E4A1E">CERTIFICADO DE REGISTRO E LICENCIAMENTO DE VEÍCULO</text>
   <text x="320" y="66" font-family="Arial" font-size="12" text-anchor="middle" fill="#B91C1C">DOCUMENTO DE EXEMPLO · SEM VALIDADE</text>
-  ${[["CÓDIGO RENAVAM", "0012345678-9", 30, 100], ["PLACA", "ABC1D23", 330, 100], ["ANO FABRICAÇÃO", "2020", 30, 150], ["ANO MODELO", "2021", 180, 150], ["CATEGORIA", "ALUGUEL", 330, 150], ["MARCA / MODELO / VERSÃO", "VW/24.280 CRM 6X2", 30, 200], ["ESPÉCIE / TIPO", "CARGA / CAMINHÃO", 330, 200], ["CHASSI", "9BWXXXXXXXXX00000", 30, 250], ["COR PREDOMINANTE", "BRANCA", 330, 250], ["COMBUSTÍVEL", "DIESEL", 30, 300], ["CARROCERIA", "ABERTA", 180, 300], ["POTÊNCIA / CILINDRADA", "280CV / 6870", 330, 300], ["LOCAL", "MARINGÁ - PR", 30, 350], ["DATA", "15/03/2026", 330, 350]].map(([r, v, x, y]) => `<text x="${x}" y="${y}" font-family="Arial" font-size="10" fill="#5B7A43">${r}</text><text x="${x}" y="${y + 18}" font-family="Courier New" font-size="16" font-weight="bold" fill="#111">${v}</text>`).join("")}</svg>`;
+  ${[["CÓDIGO RENAVAM", "0012345678-9", 30, 100], ["PLACA", "ABC1D23", 330, 100], ["ANO FABRICAÇÃO", "2020", 30, 150], ["ANO MODELO", "2021", 180, 150], ["CATEGORIA", "ALUGUEL", 330, 150], ["MARCA / MODELO / VERSÃO", "VW/24.280 CRM 6X2", 30, 200], ["ESPÉCIE / TIPO", "CARGA / CAMINHÃO", 330, 200], ["CHASSI", "9BWXXXXXXXXX00000", 30, 250], ["COR PREDOMINANTE", "BRANCA", 330, 250], ["COMBUSTÍVEL", "DIESEL", 30, 300], ["CARROCERIA", "ABERTA", 180, 300], ["POTÊNCIA / CILINDRADA", "280CV / 6870", 330, 300], ["LOCAL", "CIDADE - UF", 30, 350], ["DATA", "15/03/2026", 330, 350]].map(([r, v, x, y]) => `<text x="${x}" y="${y}" font-family="Arial" font-size="10" fill="#5B7A43">${r}</text><text x="${x}" y="${y + 18}" font-family="Courier New" font-size="16" font-weight="bold" fill="#111">${v}</text>`).join("")}</svg>`;
   return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(s);
 }
 function painelCadastro() {
@@ -644,7 +644,7 @@ function painelLeads() {
 }
 function ligarLeads() { document.querySelectorAll("[data-av]").forEach((b) => (b.onclick = () => { const l = LEADS[+b.dataset.av]; l.e++; l.al = 0; l.t = "agora"; render(); })); }
 function painelPecas() {
-  const ev = [["09:42", "Filtro de óleo do motor", "vendido no Mercado Livre", "estoque do site baixou de 19 para 18"], ["09:15", "Lâmpada H7 24V (par)", "vendida no balcão de Maringá", "Mercado Livre e site atualizados"], ["08:58", "Kit de embreagem completo", "vendido no site (Pix)", "anúncio do Mercado Livre pausado: última unidade"]];
+  const ev = [["09:42", "Filtro de óleo do motor", "vendido no Mercado Livre", "estoque do site baixou de 19 para 18"], ["09:15", "Lâmpada H7 24V (par)", "vendida no balcão de " + UNIDADES[2].curto, "Mercado Livre e site atualizados"], ["08:58", "Kit de embreagem completo", "vendido no site (Pix)", "anúncio do Mercado Livre pausado: última unidade"]];
   return `<div class="cab-secao"><div><h2>Peças: um estoque para todos os canais</h2><p class="sub" style="margin:0">O mesmo motor que já roda em lojas de autopeças com milhares de anúncios no Mercado Livre</p></div></div>
   <div class="kpis"><div class="kpi"><small>Peças anunciadas</small><b>1.284</b><span>site + Mercado Livre</span></div><div class="kpi"><small>Vendas online (30 dias)</small><b>212</b><span>R$ 46,3 mil</span></div><div class="kpi"><small>Venda sem estoque</small><b>0</b><span>baixa automática</span></div><div class="kpi"><small>Perguntas respondidas</small><b>96%</b><span>em menos de 1 h</span></div></div>
   <div class="card" style="margin-top:16px"><h3 style="font-size:16px;margin-bottom:8px">O que aconteceu hoje</h3>${ev.map(([h, p, o, r]) => `<p style="margin:0 0 8px"><b>${h}</b> · ${p} ${o} → <span style="color:var(--ok);font-weight:700">${r}</span></p>`).join("")}</div>
